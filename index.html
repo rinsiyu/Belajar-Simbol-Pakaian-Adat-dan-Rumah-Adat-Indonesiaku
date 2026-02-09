@@ -6,227 +6,160 @@
 <title>Belajar Budaya Indonesia</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #eef5ff;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
 }
 
-header {
-  background-color: #1565c0;
-  color: white;
-  padding: 12px;
+h1, h2 {
   text-align: center;
-  font-size: 18px;
-}
-
-.fullscreen-btn {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 999;
-  padding: 8px 12px;
-  background-color: #ff9800;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 10px;
-  flex-wrap: wrap;
-}
-
-nav button {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 10px;
-  background-color: #1e88e5;
-  color: white;
-  font-size: 16px;
+  margin: 15px 0;
 }
 
 .section {
-  display: none;
-  padding: 15px;
+  margin-bottom: 30px;
 }
 
-.section.active {
-  display: block;
-}
-
-.container {
+.images, .targets {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 10px;
+  justify-content: center;
+  padding: 10px;
 }
 
-.images img {
-  width: 25vw;
-  max-width: 200px;
-  min-width: 120px;
-  margin: 12px auto;
-  display: block;
+.draggable {
+  width: 22vw;
+  max-width: 160px;
+  min-width: 110px;
+  margin: 8px;
   cursor: grab;
 }
 
-.dropzone {
-  width: 100%;
-  max-width: 350px;
-  min-height: 60px;
-  border: 2px dashed #444;
-  border-radius: 10px;
-  margin: 8px auto;
-  padding: 8px;
-  background-color: white;
+.target {
+  width: 90%;
+  max-width: 420px;
+  height: 55px;
+  margin: 6px;
+  border: 2px dashed #333;
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 14px;
-}
-
-.correct {
-  background-color: #c8f7c5;
-  border-color: green;
   font-weight: bold;
 }
 
-@media (min-width: 768px) {
-  .images img {
-    width: 140px;
-  }
-  .dropzone {
-    font-size: 16px;
-  }
+@media (max-width: 600px) {
+  .draggable { width: 35vw; }
 }
 </style>
 </head>
 
 <body>
 
-<button class="fullscreen-btn" onclick="openFullscreen()">Layar Penuh</button>
+<h1>Belajar Budaya Indonesia</h1>
 
-<header>
-Belajar Simbol, Pakaian Adat, dan Rumah Adat Indonesia
-</header>
+<!-- ================= SIMBOL ================= -->
+<div class="section">
+<h2>Simbol Pancasila</h2>
 
-<nav>
-<button onclick="showSection('simbol')">Simbol Pancasila</button>
-<button onclick="showSection('pakaian')">Pakaian Adat</button>
-<button onclick="showSection('rumah')">Rumah Adat</button>
-</nav>
-
-<!-- SIMBOL -->
-<div id="simbol" class="section active">
-<h3>Seret simbol ke arti yang benar</h3>
-
-<div class="container">
-<div class="images">
-<img src="img/simbol/bintang.png" draggable="true" id="bintang">
-<img src="img/simbol/rantai.png" draggable="true" id="rantai">
-<img src="img/simbol/beringin.png" draggable="true" id="beringin">
-<img src="img/simbol/banteng.png" draggable="true" id="banteng">
-<img src="img/simbol/padi-kapas.png" draggable="true" id="padi">
+<div class="images" id="img-simbol">
+  <img src="img/simbol/bintang.png" class="draggable" draggable="true" data-id="s1">
+  <img src="img/simbol/rantai.png" class="draggable" draggable="true" data-id="s2">
+  <img src="img/simbol/beringin.png" class="draggable" draggable="true" data-id="s3">
+  <img src="img/simbol/banteng.png" class="draggable" draggable="true" data-id="s4">
+  <img src="img/simbol/padi-kapas.png" class="draggable" draggable="true" data-id="s5">
 </div>
 
-<div>
-<div class="dropzone" data-answer="bintang">Ketuhanan Yang Maha Esa</div>
-<div class="dropzone" data-answer="rantai">Kemanusiaan yang adil dan beradab</div>
-<div class="dropzone" data-answer="beringin">Persatuan Indonesia</div>
-<div class="dropzone" data-answer="banteng">Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam permusyawaratan/perwakilan</div>
-<div class="dropzone" data-answer="padi">Keadilan sosial bagi seluruh rakyat Indonesia</div>
-</div>
+<div class="targets" id="tg-simbol">
+  <div class="target" data-id="s1">Ketuhanan Yang Maha Esa</div>
+  <div class="target" data-id="s2">Kemanusiaan yang adil dan beradab</div>
+  <div class="target" data-id="s3">Persatuan Indonesia</div>
+  <div class="target" data-id="s4">Kerakyatan yang dipimpin oleh hikmat kebijaksanaan</div>
+  <div class="target" data-id="s5">Keadilan sosial bagi seluruh rakyat Indonesia</div>
 </div>
 </div>
 
-<!-- PAKAIAN -->
-<div id="pakaian" class="section">
-<h3>Seret pakaian adat ke daerah yang benar</h3>
+<!-- ================= PAKAIAN ADAT ================= -->
+<div class="section">
+<h2>Pakaian Adat</h2>
 
-<div class="container">
-<div class="images">
-<img src="img/pakaian/kebaya.png" draggable="true" id="kebaya">
-<img src="img/pakaian/ulos.png" draggable="true" id="ulos">
-<img src="img/pakaian/koteka.png" draggable="true" id="koteka">
-<img src="img/pakaian/amarasi.png" draggable="true" id="amarasi">
-<img src="img/pakaian/king-baba.png" draggable="true" id="king">
+<div class="images" id="img-pakaian">
+  <img src="img/pakaian/kebaya.png" class="draggable" draggable="true" data-id="p1">
+  <img src="img/pakaian/ulos.png" class="draggable" draggable="true" data-id="p2">
+  <img src="img/pakaian/koteka.png" class="draggable" draggable="true" data-id="p3">
+  <img src="img/pakaian/amarasi.png" class="draggable" draggable="true" data-id="p4">
+  <img src="img/pakaian/king-baba.png" class="draggable" draggable="true" data-id="p5">
 </div>
 
-<div>
-<div class="dropzone" data-answer="kebaya">Jawa Tengah</div>
-<div class="dropzone" data-answer="ulos">Sumatera Utara</div>
-<div class="dropzone" data-answer="koteka">Papua</div>
-<div class="dropzone" data-answer="amarasi">Nusa Tenggara Timur</div>
-<div class="dropzone" data-answer="king">Kalimantan Barat</div>
-</div>
+<div class="targets" id="tg-pakaian">
+  <div class="target" data-id="p1">Jawa Tengah – Kebaya</div>
+  <div class="target" data-id="p2">Sumatera Utara – Ulos</div>
+  <div class="target" data-id="p3">Papua – Koteka</div>
+  <div class="target" data-id="p4">Nusa Tenggara Timur – Baju Amarasi</div>
+  <div class="target" data-id="p5">Kalimantan Barat – King Baba</div>
 </div>
 </div>
 
-<!-- RUMAH -->
-<div id="rumah" class="section">
-<h3>Seret rumah adat ke daerah yang benar</h3>
+<!-- ================= RUMAH ADAT ================= -->
+<div class="section">
+<h2>Rumah Adat</h2>
 
-<div class="container">
-<div class="images">
-<img src="img/rumah/joglo.png" draggable="true" id="joglo">
-<img src="img/rumah/candi-bentar.png" draggable="true" id="candi">
-<img src="img/rumah/gadang.png" draggable="true" id="gadang">
-<img src="img/rumah/tongkonan.png" draggable="true" id="tongkonan">
-<img src="img/rumah/panggung.png" draggable="true" id="panggung">
+<div class="images" id="img-rumah">
+  <img src="img/rumah/joglo.png" class="draggable" draggable="true" data-id="r1">
+  <img src="img/rumah/candi-bentar.png" class="draggable" draggable="true" data-id="r2">
+  <img src="img/rumah/gadang.png" class="draggable" draggable="true" data-id="r3">
+  <img src="img/rumah/tongkonan.png" class="draggable" draggable="true" data-id="r4">
+  <img src="img/rumah/panggung-jambi.png" class="draggable" draggable="true" data-id="r5">
 </div>
 
-<div>
-<div class="dropzone" data-answer="joglo">Jawa Tengah</div>
-<div class="dropzone" data-answer="candi">Bali</div>
-<div class="dropzone" data-answer="gadang">Sumatera Barat</div>
-<div class="dropzone" data-answer="tongkonan">Sulawesi Selatan</div>
-<div class="dropzone" data-answer="panggung">Jambi</div>
-</div>
+<div class="targets" id="tg-rumah">
+  <div class="target" data-id="r1">Jawa Tengah – Joglo</div>
+  <div class="target" data-id="r2">Bali – Gapura Candi Bentar</div>
+  <div class="target" data-id="r3">Sumatera Barat – Rumah Gadang</div>
+  <div class="target" data-id="r4">Sulawesi Selatan – Tongkonan</div>
+  <div class="target" data-id="r5">Jambi – Rumah Panggung</div>
 </div>
 </div>
 
 <script>
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
+let dragged = null;
 
-function openFullscreen() {
-  if (document.documentElement.requestFullscreen) {
-    document.documentElement.requestFullscreen();
+function shuffle(id) {
+  const box = document.getElementById(id);
+  const items = Array.from(box.children);
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
   }
+  box.innerHTML = '';
+  items.forEach(i => box.appendChild(i));
 }
 
-document.querySelectorAll("img").forEach(img => {
-  img.addEventListener("dragstart", e => {
-    e.dataTransfer.setData("id", e.target.id);
-  });
+document.querySelectorAll('.draggable').forEach(item => {
+  item.addEventListener('dragstart', e => dragged = e.target);
 });
 
-document.querySelectorAll(".dropzone").forEach(zone => {
-  zone.addEventListener("dragover", e => e.preventDefault());
-  zone.addEventListener("drop", e => {
-    const id = e.dataTransfer.getData("id");
-    if (zone.dataset.answer === id) {
-      zone.classList.add("correct");
-      zone.textContent = "Benar!";
-      document.getElementById(id).style.display = "none";
-    } else {
-      alert("Belum tepat, coba lagi ya!");
+document.querySelectorAll('.target').forEach(target => {
+  target.addEventListener('dragover', e => e.preventDefault());
+  target.addEventListener('drop', e => {
+    e.preventDefault();
+    if (dragged && dragged.dataset.id === target.dataset.id) {
+      target.style.background = "#b6ffb6";
+      target.appendChild(dragged);
+      dragged.draggable = false;
     }
   });
 });
+
+window.onload = function () {
+  shuffle('img-simbol'); shuffle('tg-simbol');
+  shuffle('img-pakaian'); shuffle('tg-pakaian');
+  shuffle('img-rumah'); shuffle('tg-rumah');
+};
 </script>
 
 </body>
