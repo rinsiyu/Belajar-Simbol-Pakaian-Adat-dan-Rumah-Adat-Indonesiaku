@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belajar Budaya Indonesia</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #eef5ff;
+}
+
+header {
+  background-color: #1565c0;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.fullscreen-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+  padding: 8px 12px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+nav button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1e88e5;
+  color: white;
+  font-size: 16px;
+}
+
+.section {
+  display: none;
+  padding: 15px;
+}
+
+.section.active {
+  display: block;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.images img {
+  width: 25vw;
+  max-width: 200px;
+  min-width: 120px;
+  margin: 12px auto;
+  display: block;
+  cursor: grab;
+}
+
+.dropzone {
+  width: 100%;
+  max-width: 350px;
+  min-height: 60px;
+  border: 2px dashed #444;
+  border-radius: 10px;
+  margin: 8px auto;
+  padding: 8px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+}
+
+.correct {
+  background-color: #c8f7c5;
+  border-color: green;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .images img {
+    width: 140px;
+  }
+  .dropzone {
+    font-size: 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<button class="fullscreen-btn" onclick="openFullscreen()">Layar Penuh</button>
+
+<header>
+Belajar Simbol, Pakaian Adat, dan Rumah Adat Indonesia
+</header>
+
+<nav>
+<button onclick="showSection('simbol')">Simbol Pancasila</button>
+<button onclick="showSection('pakaian')">Pakaian Adat</button>
+<button onclick="showSection('rumah')">Rumah Adat</button>
+</nav>
+
+<!-- SIMBOL -->
+<div id="simbol" class="section active">
+<h3>Seret simbol ke arti yang benar</h3>
+
+<div class="container">
+<div class="images">
+<img src="img/simbol/bintang.png" draggable="true" id="bintang">
+<img src="img/simbol/rantai.png" draggable="true" id="rantai">
+<img src="img/simbol/beringin.png" draggable="true" id="beringin">
+<img src="img/simbol/banteng.png" draggable="true" id="banteng">
+<img src="img/simbol/padi-kapas.png" draggable="true" id="padi">
+</div>
+
+<div>
+<div class="dropzone" data-answer="bintang">Ketuhanan Yang Maha Esa</div>
+<div class="dropzone" data-answer="rantai">Kemanusiaan yang adil dan beradab</div>
+<div class="dropzone" data-answer="beringin">Persatuan Indonesia</div>
+<div class="dropzone" data-answer="banteng">Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam permusyawaratan/perwakilan</div>
+<div class="dropzone" data-answer="padi">Keadilan sosial bagi seluruh rakyat Indonesia</div>
+</div>
+</div>
+</div>
+
+<!-- PAKAIAN -->
+<div id="pakaian" class="section">
+<h3>Seret pakaian adat ke daerah yang benar</h3>
+
+<div class="container">
+<div class="images">
+<img src="img/pakaian/kebaya.png" draggable="true" id="kebaya">
+<img src="img/pakaian/ulos.png" draggable="true" id="ulos">
+<img src="img/pakaian/koteka.png" draggable="true" id="koteka">
+<img src="img/pakaian/amarasi.png" draggable="true" id="amarasi">
+<img src="img/pakaian/king-baba.png" draggable="true" id="king">
+</div>
+
+<div>
+<div class="dropzone" data-answer="kebaya">Jawa Tengah</div>
+<div class="dropzone" data-answer="ulos">Sumatera Utara</div>
+<div class="dropzone" data-answer="koteka">Papua</div>
+<div class="dropzone" data-answer="amarasi">Nusa Tenggara Timur</div>
+<div class="dropzone" data-answer="king">Kalimantan Barat</div>
+</div>
+</div>
+</div>
+
+<!-- RUMAH -->
+<div id="rumah" class="section">
+<h3>Seret rumah adat ke daerah yang benar</h3>
+
+<div class="container">
+<div class="images">
+<img src="img/rumah/joglo.png" draggable="true" id="joglo">
+<img src="img/rumah/candi-bentar.png" draggable="true" id="candi">
+<img src="img/rumah/gadang.png" draggable="true" id="gadang">
+<img src="img/rumah/tongkonan.png" draggable="true" id="tongkonan">
+<img src="img/rumah/panggung.png" draggable="true" id="panggung">
+</div>
+
+<div>
+<div class="dropzone" data-answer="joglo">Jawa Tengah</div>
+<div class="dropzone" data-answer="candi">Bali</div>
+<div class="dropzone" data-answer="gadang">Sumatera Barat</div>
+<div class="dropzone" data-answer="tongkonan">Sulawesi Selatan</div>
+<div class="dropzone" data-answer="panggung">Jambi</div>
+</div>
+</div>
+</div>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function openFullscreen() {
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  }
+}
+
+document.querySelectorAll("img").forEach(img => {
+  img.addEventListener("dragstart", e => {
+    e.dataTransfer.setData("id", e.target.id);
+  });
+});
+
+document.querySelectorAll(".dropzone").forEach(zone => {
+  zone.addEventListener("dragover", e => e.preventDefault());
+  zone.addEventListener("drop", e => {
+    const id = e.dataTransfer.getData("id");
+    if (zone.dataset.answer === id) {
+      zone.classList.add("correct");
+      zone.textContent = "Benar!";
+      document.getElementById(id).style.display = "none";
+    } else {
+      alert("Belum tepat, coba lagi ya!");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
